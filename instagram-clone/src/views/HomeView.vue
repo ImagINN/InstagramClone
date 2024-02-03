@@ -6,17 +6,23 @@
     <text-cmp class="a1" tag="p" size="small">Hello World!</text-cmp>
     <text-cmp class="a2" tag="p" size="xsmall">Hello World!</text-cmp>
     <text-cmp class="a3" tag="p" size="xxsmall">Hello World!</text-cmp>
+    <icon-home-empty width="60" height="60"></icon-home-empty>
+    <icon-comment></icon-comment>
   </main>
 </template>
 
 <script>
 import TextCmp from '@/components/TextCmp.vue';
+import IconHomeEmpty from '../components/icons/IconHomeEmpty.vue';
+import IconComment from '../components/icons/IconComment.vue';
 
 export default {
   name: 'HomeView',
   components: {
     // eslint-disable-next-line vue/no-unused-components
     'text-cmp': TextCmp,
+    'icon-home-empty': IconHomeEmpty,
+    'icon-comment': IconComment,
   }
 }
 </script>
