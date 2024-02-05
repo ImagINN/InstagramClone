@@ -29,16 +29,19 @@ export default {
 <template>
   <header class="main-header">
     <main-container class="header-inner">
+      <!-- Logo -->
       <div>
         <RouterLink to="/" class="logo">
           Instagram
         </RouterLink>&nbsp;
       </div>
 
+      <!-- Search -->
       <form class="search">
-        <icn-search/><input type="text" placeholder="Search..">
+        <icn-search /><input type="text" placeholder="Search..">
       </form>
 
+      <!-- Page Navigation -->
       <nav class="navigation">
         <RouterLink to="/">
           <icn-home-fill v-if="$route.name === 'Home'" />
@@ -63,14 +66,26 @@ export default {
 
 <style scoped>
 .main-header {
+  z-index: 90;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: white;
   border-bottom: 1px solid rgb(var(--b6a), 1);
 }
 
 .header-inner {
   height: 60px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   align-items: center;
+  justify-content: center;
+
+  @media (min-width: 980px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
 }
 
 .logo {
@@ -79,31 +94,46 @@ export default {
 }
 
 .search {
-  text-align: center;
+  display: none;
 
-  input {
-    height: 28px;
-    width: 215px;
-    border: 1px solid rgb(var(--b6a), 1);
-    background-color: rgb(var(--b3f), 1);
-    border-radius: 4px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  @media (min-width: 980px) {
+    display: block;
+    text-align: center;
 
-  icn-search {
-    height: 24px;
-    width: 24px;
+    input {
+      height: 28px;
+      width: 215px;
+      border: 1px solid rgb(var(--b6a), 1);
+      background-color: rgb(var(--b3f), 1);
+      border-radius: 4px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 }
 
 .navigation {
+  z-index: 90;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border-top: 1px solid rgb(var(--b6a), 1);
+  height: 50px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: space-around;
 
-  a {
-    margin-left: 20px;
+  @media (min-width: 980px) {
+    height: auto;
+    border: 0;
+    position: static;
+    justify-content: flex-end;
+
+    a {
+      margin-left: 20px;
+    }
   }
 }
 </style>
