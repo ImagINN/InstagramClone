@@ -1,20 +1,30 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
+<script>
+// eslint-disable-next-line no-unused-vars
+import { RouterView } from 'vue-router'
+import MainHeader from '@/components/MainHeaderCmp.vue';
+import MainContainer from '@/components/MainContainerCmp.vue';
+
+export default {
+  name: 'App',
+  components: {
+    'main-header': MainHeader,
+    'main-container': MainContainer,
+  }
+}
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <main-header />
 
-  <RouterView />
+  <main class="main">
+    <main-container>
+      <RouterView />
+    </main-container>
+  </main>
 </template>
 
 <style scoped>
-
+.main {
+  padding-top: 40px;
+}
 </style>
