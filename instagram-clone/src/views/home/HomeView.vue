@@ -1,91 +1,139 @@
 <template>
   <main>
-    <h1>This is home page</h1>
+    <div class="home">
+      <div class="time-line">
+        <h1>This is home page</h1>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor dignissimos
-      nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-      voluptatem.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+      </div>
+
+      <div class="side-bar">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
+          dignissimos
+          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
+          voluptatem.
+        </p><br>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -100,17 +148,24 @@ export default {
 </script>
 
 <style scoped>
-.a1 {
-  color: rgba(var(--a72), 1);
+.home {
+  max-width: 605px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 980px) {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr 295px;
+    grid-gap: 30px;
+  }
 }
 
-.a2 {
-  color: rgba(var(--ba8), 1);
+.side-bar {
+  display: none;
 
-}
-
-.a3 {
-  color: rgba(var(--ba8), 1);
-
+  @media (min-width: 980px) {
+    display: block;
+  }
 }
 </style>
