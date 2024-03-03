@@ -2,15 +2,11 @@
   <main>
     <div class="home">
       <div class="time-line">
-        <post/>      
+        <post />      
       </div>
 
       <div class="side-bar">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo animi dolore nobis, dolor
-          dignissimos
-          nesciunt quaerat optio ea laudantium eveniet itaque. Fuga facilis voluptates debitis! Magnam quibusdam est
-          voluptatem.
-        </p><br>
+        <side-bar />
       </div>
     </div>
   </main>
@@ -18,11 +14,13 @@
 
 <script>
 import Post from '@/components/PostCmp.vue';
+import SideBar from '@/components/HomePgSideBarCmp.vue';
 
 export default {
   name: 'HomeView',
   components: {
     'post': Post,
+    'side-bar': SideBar,
   }
 }
 </script>

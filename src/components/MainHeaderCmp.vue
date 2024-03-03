@@ -40,7 +40,7 @@ export default {
 
       <!-- Search -->
       <form class="search">
-        <icn-search /><input type="text" placeholder="Search..">
+        <input type="text" placeholder="Search..">
       </form>
 
       <!-- Page Navigation -->
@@ -61,7 +61,7 @@ export default {
         </RouterLink>&nbsp;
 
         <RouterLink to="/profile">
-          <avatar :size="28" />
+          <avatar :size="28" style="background: transparent;" />
         </RouterLink>
       </nav>
     </main-container>
@@ -136,7 +136,7 @@ export default {
     justify-content: flex-end;
 
     a {
-      margin-left: 20px;
+      margin-left: 15px;
     }
   }
 }
