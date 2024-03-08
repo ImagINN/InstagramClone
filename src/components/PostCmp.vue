@@ -31,6 +31,7 @@ export default {
     data() {
         return {
             maxLength: 200,
+            showMoreModal: false,
             posts: [
                 {
                     type: Object,
@@ -140,8 +141,11 @@ export default {
                     isSaved: false,
                     postedDate: new Date("2022-01-20"),
                 },
-            ]
+            ],
         };
+    },
+    mounted() {
+        document.addEventListener('click', this.closeDropdownOnClickOutside);
     },
     methods: {
         toggleText(id) {
@@ -171,9 +175,9 @@ export default {
             this.posts[id].isSaved = !this.posts[id].isSaved;
         },
         getPostedDate(id) {
-            const currentDay = new Date().getTime(); 
+            const currentDay = new Date().getTime();
             const timeDifference = currentDay - this.posts[id].postedDate.getTime();
-            const dayDifference =  Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
             if (dayDifference < 7) {
                 return dayDifference.toString() + 'g';
@@ -183,120 +187,151 @@ export default {
                 return (parseInt(dayDifference / 365)).toString() + 'y';
             }
         },
-    }
+    },
 }
 </script>
 
 <template>
-    <div class="post" v-for="post in posts">
+    <!-- Post -->
+    <div class="rounded-md border border-solid border-gray-300 mb-4" v-for="post in posts">
         <!-- Header -->
-        <header class="post-header section">
-            <div class="header-author">
-                <avatar class="avatar-author" :src="post.avatar" :size="42" />
-                <div class="author">
-                    <div class="author-info">
+        <header class="flex h-[60px] items-center">
+            <!-- Header Author -->
+            <div class="flex items-center">
+                <!-- Avatar Author -->
+                <avatar class="ml-2 h-[44px] w-[44px]" :src="post.avatar" :size="42" />
+                <!-- Author -->
+                <div class="ml-2">
+                    <!-- Author Info -->
+                    <div class="grid items-center text-center" style="grid-template-columns: 1fr 50px 1fr;">
                         <div class="username">
                             <custom-text tag="b">
                                 {{ post.name }}
                             </custom-text>
                         </div>
-
-                        <div class="date-time">
-                            <custom-text class="dot" />
-                            <custom-text class="date" size="small">
+                        <!-- Date Time -->
+                        <div class="ml-1">
+                            <!-- Dot -->
+                            <custom-text class="h-1 w-1 mx-[2px] mb-[2px] bg-zinc-500 rounded-full inline-block" />
+                            <!-- Date -->
+                            <custom-text class="mx-1 text-neutral-800" size="small">
                                 {{ getPostedDate(post.id) }}
                             </custom-text>
-                            <custom-text class="dot" />
+                            <custom-text class="h-1 w-1 mx-[2px] mb-[2px] bg-zinc-500 rounded-full inline-block" />
                         </div>
-
-                        <div class="follow">
-                            <button type="button" class="follow-btn" @click="toggleFollow(post.id)">
+                        <div class="text-left">
+                            <button type="button" class="text-sky-500" @click="toggleFollow(post.id)">
                                 <custom-text tag="b">
-                                   {{ getFollowStatus(post.id) }}
+                                    {{ getFollowStatus(post.id) }}
                                 </custom-text>
                             </button>
                         </div>
-
                     </div>
                     <div>
                         <custom-text size="xsmall">{{ post.location }}</custom-text>
                     </div>
                 </div>
-
             </div>
-            <div class="header-more">
-                <button type="button">
+            <!-- Header More -->
+            <div class="ml-auto mr-2">
+                <button type="button" @click="showMoreModal = !showMoreModal">
                     <icn-more />
                 </button>
             </div>
         </header>
 
+        <!-- Show More Model -->
+        <div v-if="showMoreModal" x-show="showModal"
+            class="fixed inset-0 bg-gray-500 bg-opacity-25 flex items-center justify-center"
+            @click="showMoreModal = false">
+            <!-- Modal Content -->
+            <div @click.stop class="bg-white py-2 rounded-xl shadow-md w-96">
+                <!-- Modal Body -->
+                <div class="grid grid-cols-1 gap-y-1 justify-center items-center text-center text-lg">
+                    <button class="hover:bg-gray-200 text-red-600 font-semibold">Şikayet Et</button>
+                    <button class="hover:bg-gray-200">Favorilere ekle</button>
+                    <button class="hover:bg-gray-200">Gönderiye git</button>
+                    <button class="hover:bg-gray-200">Paylaş...</button>
+                    <button class="hover:bg-gray-200">Bağlantıyı kopyala</button>
+                    <button class="hover:bg-gray-200">Bu hesap hakkında</button>
+                    <button @click="showMoreModal = !showMoreModal"
+                        class="hover:bg-gray-200 text-gray-800 font-semibold">
+                        Cancel
+                    </button>
+                </div>
+                <!-- Modal Footer -->
+                <!-- <div class="mt-2 flex justify-center ">
+                    <button @click="showModal = !showModal"
+                        class="hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded">
+                        Cancel
+                    </button>
+                </div> -->
+            </div>
+        </div>
+
         <!-- Media -->
-        <div class="post-media">
-            <media :src="post.media" :size="600" />
+        <div class="mb-2 flex justify-center">
+            <media :src="post.media" :size="615" />
         </div>
 
         <!-- Actions -->
-        <div class="action-buttons section">
-            <button type="button" v-on:click="liked(post.id)">
+        <div class="h-10 flex items-center ml-2">
+            <button class="mr-4" type="button" v-on:click="liked(post.id)">
                 <icn-like-fill v-if="post.isLike" />
                 <icn-like-empty v-else />
             </button>
-
-            <button type="button">
+            <button class="mr-4" type="button">
                 <icn-comment />
             </button>
-
-            <RouterLink to="/direct">
-                <button type="button">
+            <RouterLink class="flex items-center justify-center text-center" to="/direct">
+                <button class="mr-4" type="button">
                     <icn-direct-empty />
                 </button>
             </RouterLink>
-
-            <button type="button" class="action-save" @click="toggleSave(post.id)">
+            <button type="button" class="ml-auto mr-2" @click="toggleSave(post.id)">
                 <icn-save-like v-if="post.isSaved" />
                 <icn-save-empty v-else />
             </button>
         </div>
 
         <!-- View Count -->
-        <div class="view-count section">
-            <avatar class="avatar-author" :size="16" style="background: transparent;" />
+        <div class="view-count mb-1 ml-1 flex justify-start items-center text-center">
+            <avatar class="avatar-author p-0 mr-1" :size="16" style="background: transparent;" />
             <custom-text tag="b">{{ post.likeCount }} beğenme</custom-text>
         </div>
 
         <!-- Content -->
-        <div class="post-content section">
+        <div class="mb-2 ml-2">
             <custom-text tag="b">
                 gokhan_sal
             </custom-text>
             <custom-text>{{ truncatedText(post.id) }}</custom-text>
-            <button type="button" class="show-more-content" v-if="post.showButton && !post.isFullTextShow"
+            <button type="button" class="text-slate-700" v-if="post.showButton && !post.isFullTextShow"
                 v-on:click="toggleText(post.id)"><custom-text tag="b">{{
-                    buttonText(post.id) }}</custom-text>
+        buttonText(post.id) }}</custom-text>
             </button>
         </div>
 
         <!-- Comment List -->
         <div class="comment-list">
-            <button type="button" class="show-comments section">
+            <button type="button" class="mb-2 text-slate-700 ml-2">
                 <custom-text tag="b">{{ post.commentCount }} yorumun tümünü gör</custom-text>
             </button>
         </div>
 
         <!-- Comment Form -->
-        <div class="comment-form section">
-            <button type="button" class="add-comment">
+        <div class="comment-form flex items-center mb-2 ml-2">
+            <button type="button" class="add-comment text-slate-700">
                 <custom-text tag="b">Yorum ekle...</custom-text>
             </button>
-            <button class="emoji"><icn-emoji width="20px" height="20px" /></button>
+            <button class="emoji ml-auto mr-2"><icn-emoji width="20px" height="20px" /></button>
         </div>
     </div>
 </template>
 
 
 <style scoped>
-.post {
+/* .post {
     border-radius: 3px;
     border: 1px solid rgb(var(--b6a), 1);
     margin-bottom: 16px;
@@ -306,9 +341,9 @@ export default {
     padding-left: 16px;
     padding-right: 16px;
     margin-left: 4px;
-}
+} */
 
-.post-header {
+/* .post-header {
     height: 60px;
     display: flex;
     align-items: center;
@@ -361,15 +396,15 @@ export default {
     .header-more {
         margin-left: auto;
     }
-}
+} */
 
-.post-media {
+/* .post-media {
     margin-bottom: 8px;
     display: flex;
     justify-content: center;
-}
+} */
 
-.action-buttons {
+/* .action-buttons {
     height: 40px;
     display: flex;
     align-items: center;
@@ -382,9 +417,9 @@ export default {
         margin-left: auto;
         margin-right: 0;
     }
-}
+} */
 
-.story-avatar {
+/* .story-avatar {
     margin-bottom: 16px;
     margin-right: 4px;
 }
@@ -394,22 +429,22 @@ export default {
     display: flex;
     justify-content: flex-start;
     margin-left: 0;
-}
+} */
 
-.post-content {
+/* .post-content {
     margin-bottom: 8px;
 
     .show-more-content {
         color: #545454;
     }
-}
+} */
 
-.show-comments {
+/* .show-comments {
     margin-bottom: 8px;
     color: #545454;
-}
+} */
 
-.comment-form {
+/* .comment-form {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
@@ -421,5 +456,5 @@ export default {
     .emoji {
         margin-left: auto;
     }
-}
+} */
 </style>

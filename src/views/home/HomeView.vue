@@ -1,11 +1,11 @@
 <template>
   <main>
-    <div class="home">
+    <div class="home max-w-[605px] mr-auto ml-auto">
       <div class="time-line">
         <post />      
       </div>
 
-      <div class="side-bar">
+      <div class="side-bar hidden">
         <side-bar />
       </div>
     </div>
@@ -27,9 +27,9 @@ export default {
 
 <style scoped>
 .home {
-  max-width: 605px;
+  /* max-width: 605px;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto; */
 
   @media (min-width: 980px) {
     max-width: none;
@@ -40,7 +40,7 @@ export default {
 }
 
 .side-bar {
-  display: none;
+  /* display: none; */
 
   @media (min-width: 980px) {
     display: block;

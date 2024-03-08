@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="max-w-[940px] ml-auto mr-auto">
         <slot>
 
         </slot>
@@ -17,9 +17,9 @@ export default {
 </template>
 
 <style scoped>
-.container {
+/* .container {
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 </style>
