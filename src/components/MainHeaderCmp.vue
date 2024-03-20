@@ -156,7 +156,7 @@ export default {
   }
 
   .md\:h-auto {
-    height: auto;
+    height: 20px;
   }
 
   .md\:border-0 {
