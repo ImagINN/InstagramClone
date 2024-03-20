@@ -11,6 +11,7 @@ import IconLikeFill from '@/components/icons/IconLikeFill.vue';
 import IconSaveEmpty from '@/components/icons/IconSaveEmpty.vue';
 import IconSaveFill from '@/components/icons/IconSaveFill.vue';
 import IconEmoji from '@/components/icons/IconEmoji.vue';
+import WidePostModel from '@/components/WidePostModalCmp.vue';
 
 export default {
     name: 'PostCmp',
@@ -19,6 +20,7 @@ export default {
         'avatar': Avatar,
         'media': Media,
         'custom-text': CustomText,
+        'wide-post-modal': WidePostModel,
         'icn-more': IconMore,
         'icn-direct-empty': IconDirectEmpty,
         'icn-comment': IconComment,
@@ -31,6 +33,7 @@ export default {
     data() {
         return {
             maxLength: 200,
+            showMoreModal: false,
             posts: [
                 {
                     type: Object,
@@ -49,6 +52,20 @@ export default {
                     isFullTextShow: false,
                     isSaved: false,
                     postedDate: new Date("2024-02-15"),
+                    commentList: [
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                    ],
+                    isWidePostModalShow: false,
                 },
                 {
                     type: Object,
@@ -67,6 +84,20 @@ export default {
                     isFullTextShow: false,
                     isSaved: false,
                     postedDate: new Date("2022-01-20"),
+                    commentList: [
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                    ],
+                    isWidePostModalShow: false,
                 },
                 {
                     type: Object,
@@ -85,6 +116,20 @@ export default {
                     isFullTextShow: false,
                     isSaved: false,
                     postedDate: new Date("2022-01-20"),
+                    commentList: [
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                    ],
+                    isWidePostModalShow: false,
                 },
                 {
                     type: Object,
@@ -103,6 +148,20 @@ export default {
                     isFullTextShow: false,
                     isSaved: false,
                     postedDate: new Date("2022-01-20"),
+                    commentList: [
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                    ],
+                    isWidePostModalShow: false,
                 },
                 {
                     type: Object,
@@ -111,7 +170,7 @@ export default {
                     avatar: 'https://m.media-amazon.com/images/M/MV5BNWIzZTI1ODUtZTUzMC00NTdiLWFlOTYtZTg4MGZkYmU4YzNlXkEyXkFqcGdeQXVyNTExOTk5Nzg@._V1_UX32_CR0,0,32,44_AL_.jpg',
                     location: 'Dayton, Ohio',
                     media: 'https://i.pinimg.com/736x/b6/0d/48/b60d480284f2d8000675445356e6fd6e.jpg',
-                    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit atque repellendus minus. Qui velit dicta ad earum, est ut illo similique reprehenderit et dolore nesciunt tempora neque delectus cumque fuga!",
+                    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit atque repellendus minus. Qui velit dicta ad earum, est ut illo similique reprehenderit et dolore nesciunt tempora neque delectus cumque fuga! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit atque repellendus minus. Qui velit dicta ad earum, est ut illo similique reprehenderit et dolore nesciunt tempora neque delectus cumque fuga! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit atque repellendus minus. Qui velit dicta ad earum, est ut illo similique reprehenderit et dolore nesciunt tempora neque delectus cumque fuga! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit atque repellendus minus. Qui velit dicta ad earum, est ut illo similique reprehenderit et dolore nesciunt tempora neque delectus cumque fuga! Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit atque repellendus minus. Qui velit dicta ad earum, est ut illo similique reprehenderit et dolore nesciunt tempora neque delectus cumque fuga!",
                     followText: '',
                     isFollowed: false,
                     likeCount: 123,
@@ -121,6 +180,20 @@ export default {
                     isFullTextShow: false,
                     isSaved: false,
                     postedDate: new Date("2022-01-20"),
+                    commentList: [
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                    ],
+                    isWidePostModalShow: false,
                 },
                 {
                     type: Object,
@@ -139,9 +212,26 @@ export default {
                     isFullTextShow: false,
                     isSaved: false,
                     postedDate: new Date("2022-01-20"),
+                    commentList: [
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                        'lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                    ],
+                    isWidePostModalShow: false,
                 },
-            ]
+            ],
         };
+    },
+    mounted() {
+        document.addEventListener('click', this.closeDropdownOnClickOutside);
     },
     methods: {
         toggleText(id) {
@@ -171,9 +261,9 @@ export default {
             this.posts[id].isSaved = !this.posts[id].isSaved;
         },
         getPostedDate(id) {
-            const currentDay = new Date().getTime(); 
+            const currentDay = new Date().getTime();
             const timeDifference = currentDay - this.posts[id].postedDate.getTime();
-            const dayDifference =  Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
             if (dayDifference < 7) {
                 return dayDifference.toString() + 'g';
@@ -183,120 +273,256 @@ export default {
                 return (parseInt(dayDifference / 365)).toString() + 'y';
             }
         },
-    }
+        toggleWidePostModal(id) {
+            this.posts[id].isWidePostModalShow = !this.posts[id].isWidePostModalShow;
+        },
+    },
 }
 </script>
 
 <template>
-    <div class="post" v-for="post in posts">
+    <!-- Post -->
+    <div class="rounded-md border border-solid border-gray-300 mb-4" v-for="post in posts">
         <!-- Header -->
-        <header class="post-header section">
-            <div class="header-author">
-                <avatar class="avatar-author" :src="post.avatar" :size="42" />
-                <div class="author">
-                    <div class="author-info">
+        <header class="flex h-[60px] items-center">
+            <!-- Header Author -->
+            <div class="flex items-center">
+                <!-- Avatar Author -->
+                <avatar class="ml-2 h-[44px] w-[44px]" :src="post.avatar" :size="42" />
+                <!-- Author -->
+                <div class="ml-2">
+                    <!-- Author Info -->
+                    <div class="grid items-center text-center" style="grid-template-columns: 1fr 50px 1fr;">
                         <div class="username">
                             <custom-text tag="b">
                                 {{ post.name }}
                             </custom-text>
                         </div>
-
-                        <div class="date-time">
-                            <custom-text class="dot" />
-                            <custom-text class="date" size="small">
+                        <!-- Date Time -->
+                        <div class="ml-1">
+                            <!-- Dot -->
+                            <custom-text class="h-1 w-1 mx-[2px] mb-[2px] bg-zinc-500 rounded-full inline-block" />
+                            <!-- Date -->
+                            <custom-text class="mx-1 text-neutral-800" size="small">
                                 {{ getPostedDate(post.id) }}
                             </custom-text>
-                            <custom-text class="dot" />
+                            <custom-text class="h-1 w-1 mx-[2px] mb-[2px] bg-zinc-500 rounded-full inline-block" />
                         </div>
-
-                        <div class="follow">
-                            <button type="button" class="follow-btn" @click="toggleFollow(post.id)">
+                        <div class="text-left">
+                            <button type="button" class="text-sky-500" @click="toggleFollow(post.id)">
                                 <custom-text tag="b">
-                                   {{ getFollowStatus(post.id) }}
+                                    {{ getFollowStatus(post.id) }}
                                 </custom-text>
                             </button>
                         </div>
-
                     </div>
                     <div>
                         <custom-text size="xsmall">{{ post.location }}</custom-text>
                     </div>
                 </div>
-
             </div>
-            <div class="header-more">
-                <button type="button">
+            <!-- Header More -->
+            <div class="ml-auto mr-2">
+                <button type="button" @click="showMoreModal = !showMoreModal">
                     <icn-more />
                 </button>
             </div>
         </header>
 
+        <!-- Show More Model -->
+        <div v-if="showMoreModal" x-show="showModal"
+            class="z-20 fixed inset-0 bg-gray-500 bg-opacity-25 flex items-center justify-center"
+            @click="showMoreModal = false">
+            <!-- Modal Content -->
+            <div @click.stop class="bg-white py-2 rounded-xl shadow-md w-96">
+                <!-- Modal Body -->
+                <div class="grid grid-cols-1 gap-y-1 justify-center items-center text-center text-lg">
+                    <button class="hover:bg-gray-200 text-red-600 font-semibold">Şikayet Et</button>
+                    <button class="hover:bg-gray-200">Favorilere ekle</button>
+                    <button class="hover:bg-gray-200">Gönderiye git</button>
+                    <button class="hover:bg-gray-200">Paylaş...</button>
+                    <button class="hover:bg-gray-200">Bağlantıyı kopyala</button>
+                    <button class="hover:bg-gray-200">Bu hesap hakkında</button>
+                    <button @click="showMoreModal = !showMoreModal"
+                        class="hover:bg-gray-200 text-gray-800 font-semibold">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Media -->
-        <div class="post-media">
-            <media :src="post.media" :size="600" />
+        <div class="mb-2 flex justify-center">
+            <media :src="post.media" :size="615" />
         </div>
 
         <!-- Actions -->
-        <div class="action-buttons section">
-            <button type="button" v-on:click="liked(post.id)">
+        <div class="h-10 flex items-center ml-2">
+            <button class="mr-4" type="button" v-on:click="liked(post.id)">
                 <icn-like-fill v-if="post.isLike" />
                 <icn-like-empty v-else />
             </button>
-
-            <button type="button">
+            <button class="mr-4" type="button">
                 <icn-comment />
             </button>
-
-            <RouterLink to="/direct">
-                <button type="button">
+            <RouterLink class="flex items-center justify-center text-center" to="/direct">
+                <button class="mr-4" type="button">
                     <icn-direct-empty />
                 </button>
             </RouterLink>
-
-            <button type="button" class="action-save" @click="toggleSave(post.id)">
+            <button type="button" class="ml-auto mr-2" @click="toggleSave(post.id)">
                 <icn-save-like v-if="post.isSaved" />
                 <icn-save-empty v-else />
             </button>
         </div>
 
         <!-- View Count -->
-        <div class="view-count section">
-            <avatar class="avatar-author" :size="16" style="background: transparent;" />
+        <div class="view-count mb-1 ml-1 flex justify-start items-center text-center">
+            <avatar class="avatar-author p-0 mr-1" :size="16" style="background: transparent;" />
             <custom-text tag="b">{{ post.likeCount }} beğenme</custom-text>
         </div>
 
         <!-- Content -->
-        <div class="post-content section">
+        <div class="mb-2 ml-2">
             <custom-text tag="b">
                 gokhan_sal
             </custom-text>
             <custom-text>{{ truncatedText(post.id) }}</custom-text>
-            <button type="button" class="show-more-content" v-if="post.showButton && !post.isFullTextShow"
-                v-on:click="toggleText(post.id)"><custom-text tag="b">{{
-                    buttonText(post.id) }}</custom-text>
+            <button type="button" class="text-slate-700" v-if="post.showButton && !post.isFullTextShow"
+                v-on:click="toggleText(post.id)"><custom-text tag="b">{{ buttonText(post.id) }}</custom-text>
             </button>
         </div>
 
         <!-- Comment List -->
         <div class="comment-list">
-            <button type="button" class="show-comments section">
+            <button type="button" class="mb-2 text-slate-700 ml-2" @click="toggleWidePostModal(post.id)">
                 <custom-text tag="b">{{ post.commentCount }} yorumun tümünü gör</custom-text>
+                <!-- Wide Post Modal -->
+                <div v-if="post.isWidePostModalShow" x-show="showModal"
+                    class="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-35 cursor-default">
+                    <div class="flex items-center justify-center">
+                        <div @click.stop class="bg-white shadow-md w-9/12 h-3/4 border border-solid border-gray-300">
+                            <div class="grid grid-cols-5 gap-y-1 text-lg">
+                                <div class="flex ml-0.5 max-h-full max-w-full justify-center items-center col-span-3">
+                                    <media :src="post.media" :size="800" />
+                                </div>
+                                <div class="col-span-2">
+                                    <header class="flex h-[60px] items-center">
+                                        <!-- Header Author -->
+                                        <div class="flex items-center">
+                                            <!-- Avatar Author -->
+                                            <avatar class="ml-2 h-[44px] w-[44px]" :src="post.avatar" :size="42" />
+                                            <!-- Author -->
+                                            <div class="grid items-center text-center"
+                                                style="grid-template-columns: 1fr 50px 1fr;">
+                                                <div class="username ml-1">
+                                                    <custom-text tag="b">
+                                                        {{ post.name }}
+                                                    </custom-text>
+                                                </div>
+                                                <!-- Date Time -->
+                                                <div class="ml-1">
+                                                    <!-- Dot -->
+                                                    <custom-text
+                                                        class="h-1 w-1 mx-[2px] mb-[2px] bg-zinc-500 rounded-full inline-block" />
+                                                    <!-- Date -->
+                                                    <custom-text class="mx-1 text-neutral-800" size="small">
+                                                        {{ getPostedDate(post.id) }}
+                                                    </custom-text>
+                                                    <custom-text
+                                                        class="h-1 w-1 mx-[2px] mb-[2px] bg-zinc-500 rounded-full inline-block" />
+                                                </div>
+                                                <div class="text-left">
+                                                    <button type="button" class="text-sky-500"
+                                                        @click="toggleFollow(post.id)">
+                                                        <custom-text tag="b">
+                                                            {{ getFollowStatus(post.id) }}
+                                                        </custom-text>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Header More -->
+                                        <div class="ml-auto mr-2">
+                                            <button type="button" @click="showMoreModal = !showMoreModal">
+                                                <icn-more />
+                                            </button>
+                                        </div>
+                                    </header>
+                                    <div class="h-[1px] bg-gray-200"></div>
+                                    <div class="ml-2 text-left relative">
+                                        <!-- Post Header -->
+                                        <div class="grid mt-2" style="grid-template-columns: 50px 1fr;">
+                                            <div class="items-center">
+                                                <avatar class="ml-1 h-[42px] w-[42px]" :src="post.avatar" :size="40" />
+                                            </div>
+                                            <div class="leading-tight ml-2">
+                                                <label class="text-base font-bold">
+                                                    gokhan_sal
+                                                </label>
+                                                <label class="text-base">
+                                                    {{ truncatedText(post.id) }}
+                                                    <button type="button" class="text-base text-slate-700"
+                                                        v-if="post.showButton && !post.isFullTextShow"
+                                                        v-on:click="toggleText(post.id)">
+                                                        <custom-text tag="b">
+                                                            {{ buttonText(post.id) }}
+                                                        </custom-text>
+                                                    </button>
+                                                </label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="h-[1px] bg-gray-200"></div>
+
+                                        <!-- Comment List -->
+                                        <div class="overflow-x-auto h-[450px] mx-auto mt-1">
+                                            <div v-for="comment in post.commentList" class="grid mb-4"
+                                                style="grid-template-columns: 50px 1fr;">
+                                                <!-- İlk sütun -->
+                                                <div class="items-center">
+                                                    <avatar class="ml-1 h-[42px] w-[42px]" :src="post.avatar"
+                                                        :size="40" />
+                                                </div>
+                                                <!-- İkinci sütun -->
+                                                <div class="grid text-left ml-2">
+                                                    <div class="leading-4">
+                                                        <label class="text-sm font-bold" for="">gokhan_sal </label>
+                                                        <label class="text-wrap text-sm text-slate-700">{{ comment
+                                                            }}</label>
+                                                    </div>
+                                                    <div class="grid text-sm text-slate-500 grid-cols-3 gap-x-2"
+                                                        style="grid-template-columns: 50px 100px 50px;">
+                                                        <label>5g</label>
+                                                        <label>35 beğenme</label>
+                                                        <label>beğen</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </button>
         </div>
 
         <!-- Comment Form -->
-        <div class="comment-form section">
-            <button type="button" class="add-comment">
+        <div class="comment-form flex items-center mb-2 ml-2">
+            <button type="button" class="add-comment text-slate-700">
                 <custom-text tag="b">Yorum ekle...</custom-text>
             </button>
-            <button class="emoji"><icn-emoji width="20px" height="20px" /></button>
+            <button class="emoji ml-auto mr-2"><icn-emoji width="20px" height="20px" /></button>
         </div>
     </div>
 </template>
 
 
 <style scoped>
-.post {
+/* .post {
     border-radius: 3px;
     border: 1px solid rgb(var(--b6a), 1);
     margin-bottom: 16px;
@@ -306,9 +532,9 @@ export default {
     padding-left: 16px;
     padding-right: 16px;
     margin-left: 4px;
-}
+} */
 
-.post-header {
+/* .post-header {
     height: 60px;
     display: flex;
     align-items: center;
@@ -361,15 +587,15 @@ export default {
     .header-more {
         margin-left: auto;
     }
-}
+} */
 
-.post-media {
+/* .post-media {
     margin-bottom: 8px;
     display: flex;
     justify-content: center;
-}
+} */
 
-.action-buttons {
+/* .action-buttons {
     height: 40px;
     display: flex;
     align-items: center;
@@ -382,9 +608,9 @@ export default {
         margin-left: auto;
         margin-right: 0;
     }
-}
+} */
 
-.story-avatar {
+/* .story-avatar {
     margin-bottom: 16px;
     margin-right: 4px;
 }
@@ -394,22 +620,22 @@ export default {
     display: flex;
     justify-content: flex-start;
     margin-left: 0;
-}
+} */
 
-.post-content {
+/* .post-content {
     margin-bottom: 8px;
 
     .show-more-content {
         color: #545454;
     }
-}
+} */
 
-.show-comments {
+/* .show-comments {
     margin-bottom: 8px;
     color: #545454;
-}
+} */
 
-.comment-form {
+/* .comment-form {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
@@ -421,5 +647,5 @@ export default {
     .emoji {
         margin-left: auto;
     }
-}
+} */
 </style>

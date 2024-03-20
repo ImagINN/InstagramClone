@@ -1,6 +1,7 @@
 <template>
     <div class="media">
-        <img :src="src" :alt="alt" :width="size" :height="size">
+        <img class="inline-flex w-full h-full object-cover" :src="src" :alt="alt"
+            :style="{ width: size + 'px', height: (size * 0.75) + 'px' }">
     </div>
 </template>
 
@@ -18,21 +19,22 @@ export default {
         },
         size: {
             type: Number,
+            // default: 600
         }
     }
 }
 </script>
 
 <style scoped>
-.avatar {
+/* .avatar {
     display: inline-flex;
-    /* padding: 2px; */
-    /* border-radius: 999px; */
+    padding: 2px;
+    border-radius: 999px;
     background: rgb(175, 175, 175)
 
-    /* img {
+    img {
         border-radius: inherit;
         border: 2px solid white;
-    } */
-}
+    }
+} */
 </style>

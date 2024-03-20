@@ -10,6 +10,7 @@ import IconDirectEmpty from '@/components/icons/IconDirectEmpty.vue';
 import IconDirectFill from '@/components/icons/IconDirectFill.vue';
 import IconExploreEmpty from '@/components/icons/IconExploreEmpty.vue';
 import IconExploreFill from '@/components/icons/IconExploreFill.vue';
+import IconInstagram from '@/components/icons/IconInstagram.vue';
 
 export default {
   name: 'MainHeader',
@@ -24,43 +25,47 @@ export default {
     'icn-direct-fill': IconDirectFill,
     'icn-explore-empty': IconExploreEmpty,
     'icn-explore-fill': IconExploreFill,
+    'icn-instagram': IconInstagram
   },
 }
 </script>
 
 <template>
-  <header class="main-header">
-    <main-container class="header-inner">
+  <header class="z-90 fixed inset-x-0 top-0 bg-white border-b border-solid border-slate-100">
+    <main-container class="header-inner h-16 flex items-center justify-center md:grid md:grid-cols-3 md:items-center">
       <!-- Logo -->
-      <div>
-        <RouterLink to="/" class="logo">
-          Instagram
+      <div class="flex items-center drop-shadow-lg">
+        <icn-instagram class="mr-1 drop-shadow-lg" />
+        <RouterLink to="/" class="logo text-2xl font-bold drop-shadow-lg">
+          Instagram Clone
         </RouterLink>&nbsp;
       </div>
 
       <!-- Search -->
-      <form class="search">
-        <input type="text" placeholder="Search..">
+      <form class="hidden md:block text-center drop-shadow-md">
+        <input class="h-7 w-52 border border-solid border-slate-100 bg-gray-100 rounded-md px-5" type="text"
+          placeholder="Search">
       </form>
 
       <!-- Page Navigation -->
-      <nav class="navigation">
-        <RouterLink to="/">
+      <nav class="z-90 fixed left-0 right-0 bottom-0 bg-white border-t border-solid 
+      border-slate-100 h-48 flex items-center justify-around md:flex md:justify-end md:h-auto md:border-0 md:static">
+        <RouterLink to="/" class="mr-4 drop-shadow-md">
           <icn-home-fill v-if="$route.name === 'Home'" />
           <icn-home-empty v-else />
-        </RouterLink>&nbsp;
+        </RouterLink>
 
-        <RouterLink to="/direct">
+        <RouterLink to="/direct" class="mr-4 drop-shadow-md">
           <icn-direct-fill v-if="$route.name === 'Direct'" />
           <icn-direct-empty v-else />
-        </RouterLink>&nbsp;
+        </RouterLink>
 
-        <RouterLink to="/explore">
+        <RouterLink to="/explore" class="mr-4 drop-shadow-md">
           <icn-explore-fill v-if="$route.name === 'Explore'" />
           <icn-explore-empty v-else />
-        </RouterLink>&nbsp;
+        </RouterLink>
 
-        <RouterLink to="/profile">
+        <RouterLink class="drop-shadow-md" to="/profile">
           <avatar :size="28" style="background: transparent;" />
         </RouterLink>
       </nav>
@@ -69,7 +74,7 @@ export default {
 </template>
 
 <style scoped>
-.main-header {
+/* .main-header {
   z-index: 90;
   position: fixed;
   left: 0;
@@ -77,9 +82,9 @@ export default {
   top: 0;
   background-color: white;
   border-bottom: 1px solid rgb(var(--b6a), 1);
-}
+} */
 
-.header-inner {
+/* .header-inner {
   height: 60px;
   display: flex;
   align-items: center;
@@ -90,14 +95,14 @@ export default {
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
   }
-}
+} */
 
-.logo {
+/* .logo {
   font-size: 1.6rem;
   font-weight: bold;
-}
+} */
 
-.search {
+/* .search {
   display: none;
 
   @media (min-width: 980px) {
@@ -114,9 +119,9 @@ export default {
       padding-right: 20px;
     }
   }
-}
+} */
 
-.navigation {
+/* .navigation {
   z-index: 90;
   position: fixed;
   left: 0;
@@ -138,6 +143,28 @@ export default {
     a {
       margin-left: 15px;
     }
+  }
+} */
+
+@media (min-width: 980px) {
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+
+  .md\:h-auto {
+    height: 20px;
+  }
+
+  .md\:border-0 {
+    border: 0;
+  }
+
+  .md\:static {
+    position: static;
   }
 }
 </style>

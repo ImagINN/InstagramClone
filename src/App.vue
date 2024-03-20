@@ -16,15 +16,16 @@ export default {
 <template>
   <main-header />
 
-  <main class="main">
+  <main class="main pt-[80px]">
     <main-container>
       <RouterView />
     </main-container>
   </main>
+
 </template>
 
 <style scoped>
-.main {
+/* .main {
   padding-top: 40px;
-}
+} */
 </style>
