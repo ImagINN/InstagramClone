@@ -32,7 +32,7 @@ export default {
     },
     data() {
         return {
-            maxLength: 200,
+            maxLength: 190,
             showMoreModal: false,
             posts: [
                 {
@@ -403,6 +403,7 @@ export default {
                     <div class="flex items-center justify-center">
                         <div @click.stop class="bg-white shadow-md w-9/12 h-3/4 border border-solid border-gray-300">
                             <div class="grid grid-cols-5 gap-y-1 text-lg">
+                                <!-- Post Media -->
                                 <div class="flex ml-0.5 max-h-full max-w-full justify-center items-center col-span-3">
                                     <media :src="post.media" :size="800" />
                                 </div>
@@ -450,13 +451,17 @@ export default {
                                         </div>
                                     </header>
                                     <div class="h-[1px] bg-gray-200"></div>
+                                    <!-- Post Header -->
                                     <div class="ml-2 text-left relative">
-                                        <!-- Post Header -->
-                                        <div class="grid mt-2" style="grid-template-columns: 50px 1fr;">
+                                        <div class="flex-col items-start grid mt-2"
+                                            style="grid-template-columns: 50px 1fr;">
+                                            <!-- Post Avatar -->
                                             <div class="items-center">
                                                 <avatar class="ml-1 h-[42px] w-[42px]" :src="post.avatar" :size="40" />
                                             </div>
-                                            <div class="leading-tight ml-2">
+
+                                            <!-- Post Caption -->
+                                            <div class="overflow-x-auto h-[125px] mx-auto leading-tight ml-2">
                                                 <label class="text-base font-bold">
                                                     gokhan_sal
                                                 </label>
@@ -471,20 +476,20 @@ export default {
                                                     </button>
                                                 </label>
                                             </div>
-
                                         </div>
-
                                         <div class="h-[1px] bg-gray-200"></div>
 
                                         <!-- Comment List -->
-                                        <div class="overflow-x-auto h-[450px] mx-auto mt-1">
-                                            <div v-for="comment in post.commentList" class="grid mb-4"
+                                        <div class="overflow-x-auto h-[380px] mx-auto mt-4">
+                                            <div v-for="comment in post.commentList" class="grid pb-8"
                                                 style="grid-template-columns: 50px 1fr;">
+
                                                 <!-- İlk sütun -->
                                                 <div class="items-center">
                                                     <avatar class="ml-1 h-[42px] w-[42px]" :src="post.avatar"
                                                         :size="40" />
                                                 </div>
+
                                                 <!-- İkinci sütun -->
                                                 <div class="grid text-left ml-2">
                                                     <div class="leading-4">
