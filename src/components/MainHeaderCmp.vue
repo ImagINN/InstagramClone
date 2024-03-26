@@ -27,6 +27,62 @@ export default {
     'icn-explore-fill': IconExploreFill,
     'icn-instagram': IconInstagram
   },
+  data() {
+    return {
+      searchQuery: '',
+      items: [
+        {
+          id: 0,
+          name: 'Brie_Larson',
+          avatar: 'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/230638_v9_bb.jpg',
+          isFollowed: false,
+        },
+        {
+          id: 1,
+          name: 'Chris_Hemsworth',
+          avatar: 'https://hips.hearstapps.com/hmg-prod/images/chris-hemsworth-poses-during-a-photo-call-for-thor-ragnarok-on-october-15-2017-in-sydney-australia-photo-by-mark-metcalfe_getty-images-for-disney-square.jpg?crop=1xw:0.75xh;center,top&resize=1200:*',
+          isFollowed: false,
+        },
+        {
+          id: 2,
+          name: 'Tom_Holland',
+          avatar: 'https://media.vanityfair.com/photos/6481dc94bafc6505d771230f/1:1/w_4000,h_4000,c_limit/1495240060',
+          isFollowed: false,
+        },
+        {
+          id: 3,
+          name: 'Robert_Downey_Jr',
+          avatar: 'https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_UX32_CR0,0,32,44_AL_.jpg',
+        },
+        {
+          id: 4,
+          name: 'Mark_Ruffalo',
+          avatar: 'https://m.media-amazon.com/images/M/MV5BNWIzZTI1ODUtZTUzMC00NTdiLWFlOTYtZTg4MGZkYmU4YzNlXkEyXkFqcGdeQXVyNTExOTk5Nzg@._V1_UX32_CR0,0,32,44_AL_.jpg',
+          isFollowed: false,
+        },
+        {
+          id: 5,
+          name: 'Chris_Evens',
+          avatar: 'https://m.media-amazon.com/images/M/MV5BMWZlMzRkZmYtZTg0My00MGE2LWFhZWQtOTRmZGQxMWY5OTJhXkEyXkFqcGdeQXVyMTMxODA4Njgx._V1_UX32_CR0,0,32,44_AL_.jpg',
+          isFollowed: false,
+        },
+      ]
+    };
+  },
+  computed: {
+    filteredItems() {
+      return this.items.filter(item => item.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
+    },
+    showDropdown() {
+      return this.searchQuery.length >= 3 && this.filteredItems.length > 0;
+    }
+  },
+  methods: {
+    handleInput() {
+      // Arama kutusuna her bir tuşa basıldığında bu yöntem çağrılır
+      // Yukarıdaki computed özelliklerine dayanarak dropdown'un görünürlüğünü kontrol eder
+    }
+  }
 }
 </script>
 
@@ -42,9 +98,16 @@ export default {
       </div>
 
       <!-- Search -->
-      <form class="hidden md:block text-center drop-shadow-md">
-        <input class="h-7 w-52 border border-solid border-slate-100 bg-gray-100 rounded-md px-5" type="text"
-          placeholder="Search">
+      <form class="hidden md:block drop-shadow-md text-left">
+        <input v-model="searchQuery" class="h-7 w-52 border border-solid border-slate-100 bg-gray-100 rounded-md px-5"
+          type="text" placeholder="Search" @input="handleInput">
+        <div v-if="showDropdown" class="absolute w-52 bg-white border border-gray-200 rounded-md shadow-lg mt-1">
+          <a v-for="item in filteredItems" :key="item.id" href="/profile"
+            class="flex py-2 text-center items-center text-gray-800 hover:bg-gray-200">
+            <avatar class="ml-2 h-[34px] w-[34px]" :src="item.avatar" style="background: transparent;" :size="32" />
+            <label class="ml-2" for="">{{ item.name }}</label>
+          </a>
+        </div>
       </form>
 
       <!-- Page Navigation -->
